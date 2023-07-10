@@ -6,8 +6,13 @@ number: 003
 
 # The Source
 
-As an experiment I would like to add two footnotes, the first is short,[^1] and here's a longer one.[^2]
+MY WONDEFUL SOURCES part 2
+<!-- <iframe width="420" height="315" src="https://www.youtube.com/watch?v=EmSrQCDsMv4&t=1282s&ab_channel=BillRaymond" frameborder="0" ></iframe> -->
 
-[^1]: This is the first, shorter footnote.
+{% assign media = site.mindoc_media | sort: "order" | where_exp: "item", "item.page == 'source'" | where_exp: "item", "item.media_type == 'image'" %}
 
-[^2]: Here's one with multiple paragraphs and code. This could be where citations are placed.
+{% include media.html pages=media %}
+
+{% assign media = site.mindoc_media | sort: "order" | where_exp: "item", "item.page == 'source'" | where_exp: "item", "item.media_type == 'video'" %}
+
+{% include media.html pages=media %}
